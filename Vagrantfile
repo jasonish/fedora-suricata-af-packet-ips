@@ -15,6 +15,8 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     vb.memory = "1024"
     vb.cpus = 2
+
+    vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
   end
 
   config.vm.provision "shell", inline: <<-SHELL
